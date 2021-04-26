@@ -1,0 +1,19 @@
+<div>
+  <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
+    <input
+      type="text"
+      class="fortextbox"
+      placeholder="name"
+      formControlName="name"
+    />
+    <br />
+
+    <input
+      type="submit"
+      [disabled]="!formData.valid"
+      class="forsubmit"
+      value="Submit"
+    />
+    <button (click)="cancel()">Cancel</button>
+  </form>
+</div>

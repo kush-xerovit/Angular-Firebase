@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "angular-firebase-crud"
+  "defaultProject": "angular-firebase-crud",
+  "cli": {
+    "analytics": false
+  }
 }

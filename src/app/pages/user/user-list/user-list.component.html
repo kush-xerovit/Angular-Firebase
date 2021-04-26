@@ -1,0 +1,15 @@
+<table>
+  <thead>
+    <th>Name</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>
+        <button (click)="delete(user.id)">Delete</button>
+      </td>
+      <td><button (click)="update(user.id)">Update</button></td>
+    </tr>
+  </tbody>
+</table>
+<button (click)="goTo()">Create User</button>
