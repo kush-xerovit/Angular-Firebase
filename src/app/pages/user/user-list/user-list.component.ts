@@ -23,7 +23,6 @@ export class UserListComponent implements OnInit {
           name: e.payload.doc.get('name')
         } as User;
       })
-      console.log(this.users)
     });
 
   }
@@ -33,7 +32,6 @@ export class UserListComponent implements OnInit {
   }
 
   update(id) {
-    console.log(id)
     this.router.navigate([`/user/form`], {
       queryParams: { id },
     });

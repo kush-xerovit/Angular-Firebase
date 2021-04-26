@@ -1,19 +1,23 @@
-<div>
-  <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
-    <input
-      type="text"
-      class="fortextbox"
-      placeholder="name"
-      formControlName="name"
-    />
-    <br />
-
-    <input
-      type="submit"
-      [disabled]="!formData.valid"
-      class="forsubmit"
-      value="Submit"
-    />
-    <button (click)="cancel()">Cancel</button>
-  </form>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-12">
+      <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
+        <input
+          type="text"
+          class="mb-2"
+          placeholder="name"
+          formControlName="name"
+        />
+        <br />
+        <input
+          type="submit"
+          [disabled]="!formData.valid"
+          class="btn btn-primary"
+          value="Submit"
+        />
+        <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+      </form>
+    </div>
+  </div>
 </div>
+
