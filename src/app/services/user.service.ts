@@ -1,28 +1,27 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from '../models/user.model';
+import { DbService } from './db/db.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private db: DbService) { }
 
   getUsers() {
-    return this.firestore.collection('users').snapshotChanges();
+    return this.db.getCollection('users');
   }
   getUserById(id) {
-    return this.firestore.collection('users').doc(id).snapshotChanges();
+    return this.db.getCollectionById('users', id);
   }
   createUser(user: User) {
-    return this.firestore.collection('users').add(user);
+    return this.db.createDoc('users', user)
   }
   updateUser(user: User, id) {
-    delete user.id;
-    this.firestore.doc('users/' + id).update(user);
+    this.db.updateDoc('users', user, id);
   }
-  deleteUser(userId: string) {
-    this.firestore.doc('users/' + userId).delete();
+  deleteUser(id: string) {
+    this.db.deleteDoc('users', id);
   }
 }
